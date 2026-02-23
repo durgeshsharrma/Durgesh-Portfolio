@@ -2,76 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { useTheme } from '../ThemeContext';
-
-// Project images from assets (at project root: d:\Portfolio\work_logo\)
-import virtualAssistant from '../../work_logo/virtualAssistant.png';
-import githubdetLogo from '../../work_logo/github_det.png';
-import csprepLogo from '../../work_logo/cs_prep.png';
-import movierecLogo from '../../work_logo/movie_rec.png';
-import taskremLogo from '../../work_logo/task_rem.png';
-
-const projects = [
-    {
-        id: 0,
-        title: 'Vibra - Virtual Assistant',
-        description:
-            "Built an AI-powered virtual assistant using the MERN stack and integrated Google's Gemini API for intelligent, real-time responses. Supports voice/text commands, secure JWT authentication, and dynamic React UI. Enables natural conversations and smart task handling.",
-        image: virtualAssistant,
-        tags: ['HTML', 'CSS', 'JavaScript', 'React JS', 'API', 'Node.Js', 'Express', 'MongoDB', 'Gemini API', 'JsonWebToken', 'Tailwind CSS'],
-        github: 'https://github.com/durgeshsharrma/virtualAssistant',
-        webapp: 'https://virtualassistant-r932.onrender.com/',
-        color: '#915EFF',
-        emoji: '🤖',
-    },
-    {
-        id: 1,
-        title: 'HospiTax - Healthcare Platform',
-        description:
-            'Built a full-stack hospital portal allowing patients to register, login, and book appointments. Implemented role-based access for admin and patients. Admins manage doctors and appointments; patients view schedules and payment history. Stripe payment gateway integrated.',
-        image: githubdetLogo,
-        tags: ['HTML', 'CSS', 'JavaScript', 'React JS', 'API', 'Node.Js', 'Express', 'MongoDB', 'Stripe', 'JsonWebToken', 'Tailwind CSS'],
-        github: 'https://github.com/durgeshsharrma/HospiTrax/',
-        webapp: 'https://hospitrax.onrender.com/',
-        color: '#00D4FF',
-        emoji: '🏥',
-    },
-    {
-        id: 2,
-        title: 'WanderList - Travel Booking',
-        description:
-            'A full-stack Resort Booking platform designed for travellers. Offers comprehensive property listing with detailed information. Users can list their property or resort as admin, helping others find their perfect destination.',
-        image: csprepLogo,
-        tags: ['EJS', 'Node.js', 'MongoDB', 'Express', 'HTML', 'CSS', 'JavaScript', 'API', 'Passport', 'Bootstrap'],
-        github: 'https://github.com/durgeshsharrma/wanderListin',
-        webapp: 'https://wanderliistt.onrender.com/',
-        color: '#FF6B6B',
-        emoji: '✈️',
-    },
-    {
-        id: 3,
-        title: 'URL Shortener',
-        description:
-            'Web application that provides URL shortening for any large URL. Users can login and manage their short links. The intuitive design and smooth experience make it a go-to app for anyone looking to simplify their web links.',
-        image: movierecLogo,
-        tags: ['EJS', 'API', 'HTML', 'CSS', 'JavaScript', 'NodeJS', 'Express', 'MongoDB', 'Bootstrap', 'Passport'],
-        github: 'https://github.com/durgeshsharrma/urlShortner',
-        webapp: 'https://url-shortner-2rb9.onrender.com/',
-        color: '#4ECDC4',
-        emoji: '🔗',
-    },
-    {
-        id: 4,
-        title: 'Amazon Clone',
-        description:
-            'Frontend clone of Amazon where users can browse products, add them to the cart, and proceed to checkout. Features a user-friendly interface with product listings and a secure payment flow.',
-        image: taskremLogo,
-        tags: ['HTML', 'CSS', 'JavaScript'],
-        github: 'https://github.com/durgeshsharrma/Amazon-Clone-Project',
-        webapp: 'https://durgeshsharrma.github.io/Amazon-Clone-Project/',
-        color: '#FFB347',
-        emoji: '🛒',
-    },
-];
+import { projects } from '../constants';
 
 const ALL_FILTERS = ['All', 'React JS', 'Node.js', 'MongoDB', 'JavaScript'];
 

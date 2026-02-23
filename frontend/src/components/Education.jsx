@@ -2,39 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaStar, FaCalendar } from 'react-icons/fa';
 import { useTheme } from '../ThemeContext';
-
-const education = [
-    {
-        id: 1,
-        school: 'RD Engineering College, Ghaziabad',
-        degree: 'Bachelor of Technology (B.Tech) - Computer Science',
-        date: 'June 2021 - June 2025',
-        grade: '7.01 CGPA',
-        desc: 'Completed B.Tech in Computer Science, immersed in Data Structures, Algorithms, Web Development, Database Management Systems. Applied theoretical concepts to real-world projects.',
-        color: '#915EFF',
-        icon: '🎓',
-    },
-    {
-        id: 2,
-        school: 'Shambhu Dayal Global School, Ghaziabad',
-        degree: 'CBSE (XII) - PCM with Computer Science',
-        date: 'Apr 2020 - March 2021',
-        grade: '70%',
-        desc: 'Studied Physics, Chemistry, and Mathematics (PCM) with Computer Science under the CBSE board.',
-        color: '#00D4FF',
-        icon: '📚',
-    },
-    {
-        id: 3,
-        school: 'Shambhu Dayal Global School, Ghaziabad',
-        degree: 'CBSE (X) - Science with Computer Application',
-        date: 'Apr 2018 - March 2019',
-        grade: '87.5%',
-        desc: 'Completed Class 10 with Science and Computer Application under the CBSE board.',
-        color: '#FF6B6B',
-        icon: '📖',
-    },
-];
+import { education } from '../constants';
 
 const Education = () => {
     const { isDark } = useTheme();

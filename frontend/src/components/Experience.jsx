@@ -2,42 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaBuilding, FaCalendar } from 'react-icons/fa';
 import { useTheme } from '../ThemeContext';
-
-const experiences = [
-    {
-        id: 1,
-        role: 'Full Stack Developer',
-        company: 'Cybercure Technologies',
-        date: 'Aug 2025 - Present',
-        type: 'Full-Time',
-        desc: 'Working as a full-stack developer responsible for building scalable web applications, implementing secure authentication, optimizing APIs, and developing responsive UI components. Collaborating with senior developers to enhance system performance, automate workflows, and deliver production-ready features in an agile environment.',
-        skills: ['React JS', 'Next JS', 'Node JS', 'MongoDB', 'JWT Auth', 'CRON Jobs', 'Express JS', 'REST APIs', 'Tailwind CSS'],
-        color: '#915EFF',
-        current: true,
-    },
-    {
-        id: 2,
-        role: 'Full Stack Developer (Apprenticeship)',
-        company: 'CodeSquadz',
-        date: 'April 2025 - August 2025',
-        type: 'Apprenticeship',
-        desc: 'Completed MERN Stack Development Training at CodeSquadz, where I learned to build and deploy full-stack web applications. Gained hands-on experience with modern technologies like MongoDB, Express.js, React.js, and Node.js while working on real-world project workflows.',
-        skills: ['React JS', 'Node JS', 'Express JS', 'MongoDB', 'REST APIs', 'Git & GitHub', 'Tailwind CSS'],
-        color: '#00D4FF',
-        current: false,
-    },
-    {
-        id: 3,
-        role: 'Frontend Developer',
-        company: 'TechnoHacks Edutech',
-        date: 'August 2023 - Sep 2023',
-        type: 'Internship',
-        desc: 'Developed dynamic and scalable web applications using the MERN stack, handling both frontend and backend development. Collaborated with cross-functional teams to build responsive UI, implement RESTful APIs, and optimize application performance.',
-        skills: ['HTML', 'CSS', 'JavaScript', 'React JS', 'Node JS', 'Tailwind CSS', 'MongoDB'],
-        color: '#FF6B6B',
-        current: false,
-    },
-];
+import { experiences } from '../constants';
 
 const Experience = () => {
     const [activeExp, setActiveExp] = useState(0);
@@ -70,8 +35,8 @@ const Experience = () => {
                                 whileHover={{ x: 4 }}
                                 onClick={() => setActiveExp(i)}
                                 className={`text-left p-5 rounded-xl transition-all duration-300 border ${activeExp === i
-                                        ? isDark ? 'bg-[rgba(13,13,26,0.7)]' : 'bg-white shadow-md'
-                                        : 'border-transparent hover:border-white/5'
+                                    ? isDark ? 'bg-[rgba(13,13,26,0.7)]' : 'bg-white shadow-md'
+                                    : 'border-transparent hover:border-white/5'
                                     }`}
                                 style={activeExp === i ? { borderColor: `${exp.color}30`, boxShadow: `0 0 20px ${exp.color}15` } : {}}
                             >

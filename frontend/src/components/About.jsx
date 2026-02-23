@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaRocket, FaUserTie, FaMobile } from 'react-icons/fa';
 import { useTheme } from '../ThemeContext';
+import profileImg from '../assets/photo_2025-11-16_20-12-15.jpg';
 
 const fadeInUp = (delay = 0) => ({
     initial: { opacity: 0, y: 40 },
@@ -47,7 +48,7 @@ const About = () => {
                         <div className="relative">
                             <div className="w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-primary/30 relative z-10">
                                 <img
-                                    src="/profile2.jpg"
+                                    src={profileImg}
                                     alt="Durgesh Sharma"
                                     className="w-full h-full object-cover"
                                     onError={(e) => {

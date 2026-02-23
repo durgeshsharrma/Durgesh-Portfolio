@@ -1,33 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../ThemeContext';
-
-const SkillsInfo = [
-    {
-        title: 'Frontend',
-        skills: ['HTML5', 'CSS3', 'JavaScript', 'React JS', 'Next JS', 'Tailwind CSS', 'Bootstrap'],
-        color: '#915EFF',
-        icon: '🎨',
-    },
-    {
-        title: 'Backend',
-        skills: ['Node JS', 'Express JS', 'MongoDB', 'REST APIs', 'JWT Auth', 'CRON Jobs'],
-        color: '#00D4FF',
-        icon: '⚙️',
-    },
-    {
-        title: 'Languages',
-        skills: ['JavaScript', 'Java', 'HTML5', 'CSS3', 'SQL'],
-        color: '#FF6B6B',
-        icon: '💻',
-    },
-    {
-        title: 'Tools & DevOps',
-        skills: ['Git', 'GitHub', 'VS Code', 'Postman', 'MongoDB Compass', 'Vercel', 'Netlify', 'AWS', 'Render'],
-        color: '#FFB347',
-        icon: '🛠️',
-    },
-];
+import { SkillsInfo } from '../constants';
 
 const Skills = () => {
     const [activeCategory, setActiveCategory] = useState(0);
@@ -95,7 +69,7 @@ const Skills = () => {
                 >
                     {SkillsInfo[activeCategory].skills.map((skill, i) => (
                         <motion.div
-                            key={skill}
+                            key={skill.name}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: i * 0.07 }}
@@ -104,13 +78,16 @@ const Skills = () => {
                             style={{ borderColor: `${SkillsInfo[activeCategory].color}15` }}
                         >
                             <div
-                                className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-black transition-all duration-300 group-hover:scale-110"
+                                className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 overflow-hidden"
                                 style={{ background: `${SkillsInfo[activeCategory].color}15`, border: `1px solid ${SkillsInfo[activeCategory].color}30` }}
                             >
-                                {skill[0]}
+                                {skill.logo
+                                    ? <img src={skill.logo} alt={skill.name} className="w-8 h-8 object-contain" />
+                                    : <span className="text-2xl font-black">{skill.name[0]}</span>
+                                }
                             </div>
                             <span className={`text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors ${textSub}`}>
-                                {skill}
+                                {skill.name}
                             </span>
                         </motion.div>
                     ))}
@@ -122,31 +99,69 @@ const Skills = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="mt-16 max-w-2xl mx-auto space-y-5"
+                    className="mt-16 max-w-2xl mx-auto space-y-6"
                 >
                     <h3 className={`text-center text-sm uppercase tracking-widest mb-8 ${textMuted}`}>Proficiency Level</h3>
                     {[
-                        { name: SkillsInfo[activeCategory].skills[0] || '', level: 95 },
-                        { name: SkillsInfo[activeCategory].skills[1] || '', level: 88 },
-                        { name: SkillsInfo[activeCategory].skills[2] || '', level: 85 },
-                    ].filter((s) => s.name).map((skill, i) => (
-                        <div key={skill.name} className="space-y-2">
-                            <div className="flex justify-between text-sm">
-                                <span className={`font-medium ${textMain}`}>{skill.name}</span>
-                                <span style={{ color: SkillsInfo[activeCategory].color }} className="font-bold">{skill.level}%</span>
+                        { name: SkillsInfo[activeCategory].skills[0]?.name || '', level: 95 },
+                        { name: SkillsInfo[activeCategory].skills[1]?.name || '', level: 88 },
+                        { name: SkillsInfo[activeCategory].skills[2]?.name || '', level: 85 },
+                    ].filter((s) => s.name).map((skill, i) => {
+                        const color = SkillsInfo[activeCategory].color;
+                        return (
+                            <div key={`${activeCategory}-${skill.name}`} className="space-y-2">
+                                <div className="flex justify-between text-sm items-center">
+                                    <span className={`font-semibold ${textMain}`}>{skill.name}</span>
+                                    <motion.span
+                                        key={`pct-${activeCategory}-${i}`}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ delay: 0.6 + i * 0.2 }}
+                                        style={{ color }}
+                                        className="font-black text-base"
+                                    >
+                                        {skill.level}%
+                                    </motion.span>
+                                </div>
+                                {/* Track */}
+                                <div
+                                    className="h-3 rounded-full relative overflow-visible"
+                                    style={{ background: isDark ? `${color}18` : `${color}20` }}
+                                >
+                                    {/* Filled bar */}
+                                    <motion.div
+                                        key={`bar-${activeCategory}-${i}`}
+                                        initial={{ width: 0 }}
+                                        animate={{ width: `${skill.level}%` }}
+                                        transition={{ duration: 1.3, delay: 0.4 + i * 0.2, ease: 'easeOut' }}
+                                        className="h-full rounded-full relative overflow-hidden"
+                                        style={{
+                                            background: `linear-gradient(90deg, ${color}99, ${color}, #ffffffcc)`,
+                                            boxShadow: `0 0 10px ${color}99, 0 0 22px ${color}55`,
+                                        }}
+                                    >
+                                        {/* Shimmer sweep */}
+                                        <motion.div
+                                            initial={{ x: '-100%' }}
+                                            animate={{ x: '250%' }}
+                                            transition={{ duration: 1.4, delay: 0.9 + i * 0.2, ease: 'easeInOut' }}
+                                            className="absolute inset-0 w-1/3 rounded-full"
+                                            style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)' }}
+                                        />
+                                    </motion.div>
+                                    {/* Glowing tip dot */}
+                                    <motion.div
+                                        key={`dot-${activeCategory}-${i}`}
+                                        initial={{ left: 0, opacity: 0 }}
+                                        animate={{ left: `${skill.level}%`, opacity: 1 }}
+                                        transition={{ duration: 1.3, delay: 0.4 + i * 0.2, ease: 'easeOut' }}
+                                        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-white"
+                                        style={{ background: color, boxShadow: `0 0 8px ${color}, 0 0 18px ${color}` }}
+                                    />
+                                </div>
                             </div>
-                            <div className={`h-2 rounded-full overflow-hidden ${isDark ? 'bg-white/5' : 'bg-gray-100'}`}>
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    whileInView={{ width: `${skill.level}%` }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 1.2, delay: i * 0.2, ease: 'easeOut' }}
-                                    className="h-full rounded-full"
-                                    style={{ background: `linear-gradient(90deg, ${SkillsInfo[activeCategory].color}, ${SkillsInfo[activeCategory].color}99)` }}
-                                />
-                            </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </motion.div>
             </div>
         </section>
