@@ -14,6 +14,7 @@ import { ThemeProvider, useTheme } from './ThemeContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Lenis from '@studio-freight/lenis';
+// import Lenis from '@studio-freight/lenis';
 
 const AppContent = () => {
     const { isDark } = useTheme();
