@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaRocket, FaUserTie, FaMobile } from 'react-icons/fa';
 import { useTheme } from '../ThemeContext';
-import profileImg from '../assets/photo_2025-11-16_20-12-15.jpg';
+import profileImg from '../assets/profile2.jpg';
 
 const fadeInUp = (delay = 0) => ({
     initial: { opacity: 0, y: 40 },

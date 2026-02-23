@@ -173,7 +173,7 @@ const Hero = () => {
                                 <FaGithub size={18} />
                             </a>
                             <a
-                                href="https://linkedin.com/in/durgeshsharrma"
+                                href="https://www.linkedin.com/in/durgesh-sharma-62a25b222/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center text-gray-400 hover:text-white hover:border-secondary hover:bg-secondary/10 transition-all duration-300"

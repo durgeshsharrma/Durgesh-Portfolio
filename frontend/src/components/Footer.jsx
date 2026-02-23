@@ -47,7 +47,7 @@ const Footer = () => {
                                 className={`w-9 h-9 rounded-full border border-primary/30 flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all ${textSub} hover:text-white`}>
                                 <FaGithub size={16} />
                             </a>
-                            <a href="https://linkedin.com/in/durgeshsharrma" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.linkedin.com/in/durgesh-sharma-62a25b222/" target="_blank" rel="noopener noreferrer"
                                 className={`w-9 h-9 rounded-full border border-secondary/30 flex items-center justify-center hover:border-secondary hover:bg-secondary/10 transition-all ${textSub} hover:text-white`}>
                                 <FaLinkedin size={16} />
                             </a>

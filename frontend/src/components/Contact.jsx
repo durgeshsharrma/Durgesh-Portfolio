@@ -55,7 +55,7 @@ const Contact = () => {
 
     const socials = [
         { icon: <FaGithub size={22} />, href: 'https://github.com/durgeshsharrma', label: 'GitHub', color: '#915EFF' },
-        { icon: <FaLinkedin size={22} />, href: 'https://linkedin.com/in/durgeshsharrma', label: 'LinkedIn', color: '#00D4FF' },
+        { icon: <FaLinkedin size={22} />, href: 'https://www.linkedin.com/in/durgesh-sharma-62a25b222/', label: 'LinkedIn', color: '#00D4FF' },
         { icon: <FaWhatsapp size={22} />, href: 'https://wa.me/919718167226', label: 'WhatsApp', color: '#25D366' },
     ];
 
